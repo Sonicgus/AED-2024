@@ -30,34 +30,29 @@ def algoritmo2():
     ini = 0
     fim = N-1
 
-    while ini != fim:
-        if lista[ini] == lista[fim]:
-            print("False")
-            return
-
-        soma = lista[ini]+lista[fim]
+    while ini != fim and lista[ini] != lista[fim]:
+        soma = lista[ini] + lista[fim]
 
         if soma == K:
             print("True")
             return
         if soma < K:
-            ++ini
+            ini+=1
         elif soma > K:
-            --fim
-        
+            fim-=1
         
     print("False")
 
 def algoritmo3():
 
-    check = [0]*N
+    check = [0]*2*N
 
     for elemento in lista:
-        check[elemento-1]=1
+        if check[K-elemento]:
+            print("True")
+            return
+        check[elemento]=1
     
-
-
-
     print("False")
 
 def main():
@@ -67,9 +62,9 @@ def main():
         N = i*20000
         gera()
 
-    algoritmo1()
-    algoritmo3()
-    algoritmo2()
+        algoritmo1()
+        algoritmo3()
+        algoritmo2()
 
 if __name__ == "__main__":
     main()
