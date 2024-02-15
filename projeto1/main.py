@@ -26,27 +26,37 @@ def algoritmo1():
 
 def algoritmo2():
     lista.sort()
+
     ini = 0
     fim = N-1
+
     while ini != fim:
         if lista[ini] == lista[fim]:
             print("False")
             return
 
         soma = lista[ini]+lista[fim]
-        if soma < K:
-            ++ini
-        if soma > K:
-            --fim
+
         if soma == K:
             print("True")
             return
+        if soma < K:
+            ++ini
+        elif soma > K:
+            --fim
+        
         
     print("False")
 
 def algoritmo3():
 
     check = [0]*N
+
+    for elemento in lista:
+        check[elemento-1]=1
+    
+
+
 
     print("False")
 
@@ -61,4 +71,5 @@ def main():
     algoritmo3()
     algoritmo2()
 
-main()
+if __name__ == "__main__":
+    main()
